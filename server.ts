@@ -6,10 +6,7 @@ import noteRoutes from './routes/noteRoutes';
 import authRoutes from './routes/authRoutes';
 import otpRoutes from './routes/otpRoutes';
 
-
-
 dotenv.config();
-
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -24,11 +21,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/notes', noteRoutes);
-
 app.use('/api/auth', authRoutes);
-
 app.use('/api/otp', otpRoutes);
-
 
 // MongoDB Connection
 mongoose
@@ -38,5 +32,3 @@ mongoose
     app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
   })
   .catch((err) => console.error('❌ MongoDB connection error:', err));
-
-app.use('/api/otp', otpRoutes);
